@@ -10,9 +10,6 @@
 	<artifactId>br-base</artifactId>
 	<name>br-base</name>
 	<url>https://maven.apache.org</url>
-	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-	</properties>
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -34,6 +31,12 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>com.boransolution</groupId>
+			<artifactId>br-web</artifactId>
+			<version>${revision}</version>
 		</dependency>
 	</dependencies>
 	<build>

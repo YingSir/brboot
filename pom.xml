@@ -47,6 +47,13 @@
 				</includes>
 				<filtering>false</filtering>
 			</resource>
+			<resource>
+				<directory>src/main/view</directory>
+				<includes>
+					<include>**/*.*</include>
+				</includes>
+				<filtering>false</filtering>
+			</resource>
 		</resources>
 		<plugins>
 			<plugin><!-- 配置编译插件 -->
@@ -76,5 +83,6 @@
 
 	<modules>
 		<module>br-base</module>
+		<module>br-web</module>
 	</modules>
 </project>
