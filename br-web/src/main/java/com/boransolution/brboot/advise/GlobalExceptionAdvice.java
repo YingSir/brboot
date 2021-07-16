@@ -4,11 +4,11 @@ import com.boransolution.brboot.enums.ResultCode;
 import com.boransolution.brboot.vo.Result;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestControllerAdvice;
 
-@ControllerAdvice                                                    // 作为一个控制层的切面处理
+@RestControllerAdvice                                                    // 作为一个控制层的切面处理
 public class GlobalExceptionAdvice {
     public static final String DEFAULT_ERROR_VIEW = "error";        // 定义错误显示页，error.html
 
@@ -20,6 +20,7 @@ public class GlobalExceptionAdvice {
 //        mav.addObject("url", request.getRequestURL()); 				// 获得请求的路径
 //        return mav;
 //    }
+
     //Restful方式返回
     @ExceptionHandler(value = Exception.class)
     @ResponseBody
