@@ -6,19 +6,49 @@ spring:
   config:
     activate:
       on-profile: dev
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver  # 配置MySQL的驱动程序类
+    url: jdbc:mysql://localhost:3306/br?useUnicode=true&characterEncoding=utf-8  # 数据库连接地址
+    username: root  # 数据库用户名
+    password: edceez3@5  # 数据库连接密码
+    type: com.zaxxer.hikari.HikariDataSource # 指定数据源的类型
+  jpa: # 定义JPA的相关配置项
+    show-sql: true                                # 显示执行的SQL
+    properties: # 配置JPA属性
+      hibernate.format_sql: true                 # 格式化SQL
+      hibernate.cache.use_second_level_cache: true   # 二级缓存配置
+      hibernate.cache.region.factory_class: org.hibernate.cache.ehcache.EhCacheRegionFactory
+      hibernate.cache.use_query_cache: true      # 查询缓存
+      javax.persistence.sharedCache.mode: ENABLE_SELECTIVE
+    hibernate:
+      ddl-auto: update                            # 自动DDL更新
 server:
   port: 7070  #此处设置服务的访问端口设置
   servlet:
     context-path: /br #定义ContextPath路径
   messages: # 定义资源文件，多个资源文件使用“,”分割
     basename: i18n/Messages
-
-
 ---
 spring:
   config:
     activate:
       on-profile: beta
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver  # 配置MySQL的驱动程序类
+    url: jdbc:mysql://localhost:3306/br?useUnicode=true&characterEncoding=utf-8  # 数据库连接地址
+    username: root  # 数据库用户名
+    password: edceez3@5  # 数据库连接密码
+    type: com.zaxxer.hikari.HikariDataSource # 指定数据源的类型
+  jpa: # 定义JPA的相关配置项
+    show-sql: true                                # 显示执行的SQL
+    properties: # 配置JPA属性
+      hibernate.format_sql: true                 # 格式化SQL
+      hibernate.cache.use_second_level_cache: true   # 二级缓存配置
+      hibernate.cache.region.factory_class: org.hibernate.cache.ehcache.EhCacheRegionFactory
+      hibernate.cache.use_query_cache: true      # 查询缓存
+      javax.persistence.sharedCache.mode: ENABLE_SELECTIVE
+    hibernate:
+      ddl-auto: update                            # 自动DDL更新
 server:
   port: 8080  #此处设置服务的访问端口设置
   servlet:
@@ -32,6 +62,22 @@ spring:
   config:
     activate:
       on-profile: product
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver  # 配置MySQL的驱动程序类
+    url: jdbc:mysql://localhost:3306/br?useUnicode=true&characterEncoding=utf-8  # 数据库连接地址
+    username: root  # 数据库用户名
+    password: edceez3@5  # 数据库连接密码
+    type: com.zaxxer.hikari.HikariDataSource # 指定数据源的类型
+  jpa: # 定义JPA的相关配置项
+    show-sql: true                                # 显示执行的SQL
+    properties: # 配置JPA属性
+      hibernate.format_sql: true                 # 格式化SQL
+      hibernate.cache.use_second_level_cache: true   # 二级缓存配置
+      hibernate.cache.region.factory_class: org.hibernate.cache.ehcache.EhCacheRegionFactory
+      hibernate.cache.use_query_cache: true      # 查询缓存
+      javax.persistence.sharedCache.mode: ENABLE_SELECTIVE
+    hibernate:
+      ddl-auto: update                            # 自动DDL更新
 server:
   port: 80  #此处设置服务的访问端口设置
   servlet:

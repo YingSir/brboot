@@ -89,5 +89,6 @@
 	<modules>
 		<module>br-base</module>
 		<module>br-web</module>
+		<module>br-jpa</module>
 	</modules>
 </project>

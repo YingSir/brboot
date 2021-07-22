@@ -27,7 +27,7 @@ public class UploadController {
 
     @PostMapping("/upload")
     @ResponseBody
-    public Object upload(String name, HttpServletRequest request) {
+    public Result upload(String name, HttpServletRequest request) {
         List<String> result = new ArrayList<String>();
         if (request instanceof MultipartHttpServletRequest) {
             MultipartHttpServletRequest mRequest = (MultipartHttpServletRequest) request;
