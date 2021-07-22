@@ -9,7 +9,7 @@
 	</parent>
 	<artifactId>br-web</artifactId>
 	<name>br-web</name>
-	<url>https://maven.apache.org</url>
+	<description>controller</description>
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -60,34 +60,41 @@
 
 		<dependency>
 			<groupId>com.boransolution</groupId>
-			<artifactId>br-jpa</artifactId>
+			<artifactId>br-service</artifactId>
+			<version>${revision}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.boransolution</groupId>
+			<artifactId>br-commons</artifactId>
+			<version>${revision}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.boransolution</groupId>
+			<artifactId>br-dao</artifactId>
 			<version>${revision}</version>
 		</dependency>
 	</dependencies>
 
 	<build>
-		<finalName>br-base</finalName>
 		<plugins>
-<!--			<plugin>               &lt;!&ndash; 该插件的主要功能是进行项目的打包发布处理 &ndash;&gt;-->
-<!--				<groupId>org.springframework.boot</groupId>-->
-<!--				<artifactId>spring-boot-maven-plugin</artifactId>-->
-<!--				<configuration>          &lt;!&ndash; 设置程序执行的主类 &ndash;&gt;-->
-<!--					<mainClass>com.boransolution.brboot.SpringBootStartApplication</mainClass>-->
-<!--				</configuration>-->
-<!--				<executions>-->
-<!--					<execution>-->
-<!--						<goals>-->
-<!--							<goal>repackage</goal>-->
-<!--						</goals>-->
-<!--					</execution>-->
-<!--				</executions>-->
-<!--			</plugin>-->
 			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-deploy-plugin</artifactId>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<!--2.当所依赖的其他模块，有启动类的时候，需要以下配置，指定唯一启动类-->
+				<!--由于本模块中依赖的service模块中也有启动类，因此在这里需要配置唯一启动类-->
+				<!--commons模块和dao模块没有依赖的模块，因此无需配置-->
 				<configuration>
-					<skip>true</skip>
+					<!-- 指定该Main Class为全局的唯一入口 -->
+					<mainClass>com.boransolution.brboot.SpringBootStartApplication</mainClass>
+					<layout>ZIP</layout>
 				</configuration>
+				<executions>
+					<execution>
+						<goals>
+							<goal>repackage</goal><!--可以把依赖的包都打包到生成的Jar包中-->
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>
