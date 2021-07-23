@@ -7,22 +7,14 @@
 		<artifactId>brboot</artifactId>
 		<version>${revision}</version>
 	</parent>
-	<artifactId>br-service</artifactId>
-	<name>br-service</name>
+	<artifactId>br-mq</artifactId>
+	<name>br-mq</name>
 	<description>service</description>
 	<dependencies>
 		<dependency>
-			<groupId>com.boransolution</groupId>
-			<artifactId>br-dao</artifactId>
-			<version>${revision}</version>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-amqp</artifactId>
 		</dependency>
-
-		<dependency>
-			<groupId>com.boransolution</groupId>
-			<artifactId>br-mq</artifactId>
-			<version>${revision}</version>
-		</dependency>
-
 	</dependencies>
 
 	<build>
@@ -30,5 +22,4 @@
 
 		</plugins>
 	</build>
-
 </project>

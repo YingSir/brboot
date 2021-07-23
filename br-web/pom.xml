@@ -73,6 +73,11 @@
 			<artifactId>br-dao</artifactId>
 			<version>${revision}</version>
 		</dependency>
+		<dependency>
+			<groupId>com.boransolution</groupId>
+			<artifactId>br-mq</artifactId>
+			<version>${revision}</version>
+		</dependency>
 	</dependencies>
 
 	<build>

@@ -22,6 +22,11 @@ spring:
       javax.persistence.sharedCache.mode: ENABLE_SELECTIVE
     hibernate:
       ddl-auto: update                            # 自动DDL更新
+  rabbitmq:
+      addresses: localhost     # rabbitmq服务主机名称
+      username: guest              # 用户名
+      password: guest                 # 密码
+      virtual-host: /                 # 虚拟主机
 server:
   port: 7070  #此处设置服务的访问端口设置
   servlet:

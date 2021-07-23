@@ -91,5 +91,6 @@
 		<module>br-web</module>
 		<module>br-dao</module>
 		<module>br-service</module>
+		<module>br-mq</module>
 	</modules>
 </project>
