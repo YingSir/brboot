@@ -12,6 +12,10 @@
 	<description>service</description>
 	<dependencies>
 		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-redis</artifactId>
+		</dependency>
+		<dependency>
 			<groupId>com.boransolution</groupId>
 			<artifactId>br-dao</artifactId>
 			<version>${revision}</version>
