@@ -48,6 +48,13 @@ server:
     context-path: /br #定义ContextPath路径
   messages: # 定义资源文件，多个资源文件使用“,”分割
     basename: i18n/Messages
+logging:
+  level:
+    root: "info"
+    com.boransolution.brboot: "debug"
+  file:
+    path: D:\log
+    name: brboot.log
 ---
 spring:
   config:
