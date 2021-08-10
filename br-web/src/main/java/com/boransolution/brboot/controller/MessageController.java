@@ -7,10 +7,10 @@ import com.boransolution.brboot.vo.Result;
 import org.springframework.amqp.core.Message;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -20,7 +20,7 @@ import java.util.Locale;
 /**
  * @author Administrator
  */
-@RestController //建立控制器,所有路径以Restful形式运行
+@Controller //建立控制器,所有路径以Restful形式运行
 public class MessageController {
     private MessageSource messageSource;
     private MessageUtil messageUtil;
@@ -48,7 +48,7 @@ public class MessageController {
 
     @RequestMapping("/")  //访问路径映射
     public String home() {
-        return "www.boransolution.com";
+        return "index";
     }
 
     @GetMapping("/echo/{message}")    //只支持get请求模式

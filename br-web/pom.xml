@@ -32,10 +32,10 @@
 			<artifactId>spring-boot-starter-validation</artifactId>
 		</dependency>
 
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-devtools</artifactId>
-		</dependency>
+<!--		<dependency>-->
+<!--			<groupId>org.springframework.boot</groupId>-->
+<!--			<artifactId>spring-boot-devtools</artifactId>-->
+<!--		</dependency>-->
 
 		<dependency>
 			<groupId>com.alibaba</groupId>
@@ -78,29 +78,34 @@
 			<artifactId>br-mq</artifactId>
 			<version>${revision}</version>
 		</dependency>
+		<dependency>
+			<groupId>com.boransolution</groupId>
+			<artifactId>br-shiro</artifactId>
+			<version>${revision}</version>
+		</dependency>
 	</dependencies>
 
 	<build>
 		<plugins>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-				<!--2.当所依赖的其他模块，有启动类的时候，需要以下配置，指定唯一启动类-->
-				<!--由于本模块中依赖的service模块中也有启动类，因此在这里需要配置唯一启动类-->
-				<!--commons模块和dao模块没有依赖的模块，因此无需配置-->
-				<configuration>
-					<!-- 指定该Main Class为全局的唯一入口 -->
-					<mainClass>com.boransolution.brboot.SpringBootStartApplication</mainClass>
-					<layout>ZIP</layout>
-				</configuration>
-				<executions>
-					<execution>
-						<goals>
-							<goal>repackage</goal><!--可以把依赖的包都打包到生成的Jar包中-->
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
+<!--			<plugin>-->
+<!--				<groupId>org.springframework.boot</groupId>-->
+<!--				<artifactId>spring-boot-maven-plugin</artifactId>-->
+<!--				&lt;!&ndash;2.当所依赖的其他模块，有启动类的时候，需要以下配置，指定唯一启动类&ndash;&gt;-->
+<!--				&lt;!&ndash;由于本模块中依赖的service模块中也有启动类，因此在这里需要配置唯一启动类&ndash;&gt;-->
+<!--				&lt;!&ndash;commons模块和dao模块没有依赖的模块，因此无需配置&ndash;&gt;-->
+<!--				<configuration>-->
+<!--					&lt;!&ndash; 指定该Main Class为全局的唯一入口 &ndash;&gt;-->
+<!--					<mainClass>com.boransolution.brboot.SpringBootStartApplication</mainClass>-->
+<!--					<layout>ZIP</layout>-->
+<!--				</configuration>-->
+<!--				<executions>-->
+<!--					<execution>-->
+<!--						<goals>-->
+<!--							<goal>repackage</goal>&lt;!&ndash;可以把依赖的包都打包到生成的Jar包中&ndash;&gt;-->
+<!--						</goals>-->
+<!--					</execution>-->
+<!--				</executions>-->
+<!--			</plugin>-->
 		</plugins>
 	</build>
 
