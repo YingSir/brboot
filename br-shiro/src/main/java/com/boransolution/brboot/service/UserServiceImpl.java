@@ -1,12 +1,16 @@
 package com.boransolution.brboot.service;
 
-import com.boransolution.brboot.dao.IUserDAO;
+import com.boransolution.brboot.dao.IFndRoleDao;
+import com.boransolution.brboot.dao.IFndUserDao;
+import com.boransolution.brboot.po.FndRole;
 import com.boransolution.brboot.po.FndUser;
 import com.boransolution.brboot.utils.SaltUtils;
 import org.apache.shiro.crypto.hash.Md5Hash;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
 
 /***
  * 用户注册
@@ -18,11 +22,12 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 @Transactional
 public class UserServiceImpl implements IUserService {
-    private IUserDAO iUserDAO;
+    private IFndUserDao iFndUserDao;
+    private IFndRoleDao iFndRoleDao;
     private static final int HASH_ITERATIONS=1024;
     @Autowired
-    public UserServiceImpl(IUserDAO iUserDAO) {
-        this.iUserDAO = iUserDAO;
+    public UserServiceImpl(IFndUserDao iFndUserDao) {
+        this.iFndUserDao = iFndUserDao;
     }
 
     @Override
@@ -34,11 +39,16 @@ public class UserServiceImpl implements IUserService {
         //3.明文密码进行md5+salt+hash散列
         Md5Hash md5Hash = new Md5Hash(user.getPassword(), salt, HASH_ITERATIONS);
         user.setPassword(md5Hash.toHex());
-        iUserDAO.save(user);
+        iFndUserDao.save(user);
     }
 
     @Override
     public FndUser findByUsername(String username) {
-        return iUserDAO.findByUsername(username);
+        return iFndUserDao.findByUsername(username);
+    }
+
+    @Override
+    public List<FndRole> findRolesByUsername(String username) {
+        return iFndUserDao.findRolesByUsername(username);
     }
 }

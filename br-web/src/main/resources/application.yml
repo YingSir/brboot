@@ -19,9 +19,11 @@ spring:
       hibernate.cache.use_second_level_cache: true   # 二级缓存配置
       hibernate.cache.region.factory_class: org.hibernate.cache.ehcache.EhCacheRegionFactory
       hibernate.cache.use_query_cache: true      # 查询缓存
+      hibernate.enable_lazy_load_no_trans: true # 在没有事务的情况下允许懒加载
       javax.persistence.sharedCache.mode: ENABLE_SELECTIVE
     hibernate:
       ddl-auto: update                            # 自动DDL更新
+    open-in-view: true
   rabbitmq:
 #      addresses: localhost     # rabbitmq服务主机名称
       host: 127.0.0.1               # 主机名称

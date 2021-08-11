@@ -19,8 +19,9 @@ public class FndRole {
     @GeneratedValue
     private Long id;
     @NotNull(message = "角色名不能为空")
+    @Column(name = "name", unique = true, nullable = false)
     private String name;
-    //定义角色对象
+    //定义权限对象
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "fnd_role_pers", joinColumns = {@JoinColumn(name = "role_id")}, inverseJoinColumns = {@JoinColumn(name = "perm_id")})
     private List<FndPerm> perms;

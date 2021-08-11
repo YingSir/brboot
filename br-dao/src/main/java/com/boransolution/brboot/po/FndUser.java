@@ -18,6 +18,7 @@ public class FndUser {
     @GeneratedValue(strategy = GenerationType.IDENTITY) // 根据名称引用配置的主键生成器
     private Long id;
     @NotNull(message = "用户名不能为空")
+    @Column(name = "username", unique = true, nullable = false)
     private String username;
     @NotNull(message = "密码不能为空")
     private String password;

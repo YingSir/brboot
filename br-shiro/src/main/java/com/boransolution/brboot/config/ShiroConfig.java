@@ -2,6 +2,7 @@ package com.boransolution.brboot.config;
 
 import com.boransolution.brboot.realms.CustomerRealm;
 import org.apache.shiro.authc.credential.HashedCredentialsMatcher;
+import org.apache.shiro.cache.ehcache.EhCacheManager;
 import org.apache.shiro.realm.Realm;
 import org.apache.shiro.spring.web.ShiroFilterFactoryBean;
 import org.apache.shiro.web.mgt.DefaultWebSecurityManager;
@@ -55,6 +56,17 @@ public class ShiroConfig {
         hashedCredentialsMatcher.setHashIterations(1024);
         CustomerRealm customerRealm = new CustomerRealm();
         customerRealm.setCredentialsMatcher(hashedCredentialsMatcher);
+        //开启缓存管理
+        customerRealm.setCacheManager(new EhCacheManager());
+        //开启全局缓存
+        customerRealm.setCachingEnabled(true);
+        //开启认证缓存
+        customerRealm.setAuthenticationCachingEnabled(true);
+        //缓存名称如果不配置会有默认德
+        customerRealm.setAuthenticationCacheName("brboot-authenticationCache");
+        //开启授权缓存
+        customerRealm.setAuthorizationCachingEnabled(true);
+        customerRealm.setAuthorizationCacheName("brboot-authorizationCache");
         return customerRealm;
     }
 }

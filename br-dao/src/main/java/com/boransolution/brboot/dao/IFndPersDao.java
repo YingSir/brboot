@@ -5,5 +5,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface IFndPers extends JpaRepository<FndPerm, Long> {
+public interface IFndPersDao extends JpaRepository<FndPerm, Long> {
 }
