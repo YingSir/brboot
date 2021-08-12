@@ -22,6 +22,6 @@ public class RedisCacheManager implements CacheManager {
      */
     @Override
     public <K, V> Cache<K, V> getCache(String catchName) throws CacheException {
-        return new RedisCache<K, V>();
+        return new RedisCache<K, V>(catchName);
     }
 }
